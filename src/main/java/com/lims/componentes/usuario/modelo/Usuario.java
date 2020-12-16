@@ -15,6 +15,9 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
+	@Column(name="cedula")
+	private String cedula;
+	
 	@Column(name="nombre")
 	private String nombre;
 	
@@ -67,6 +70,13 @@ public class Usuario {
 		this.contrasena = contrasena;
 	}
 	
+	public String getCedula() {
+		return cedula;
+	}
+
+	public void setCedula(String cedula) {
+		this.cedula = cedula;
+	}
 	
 	
 }
