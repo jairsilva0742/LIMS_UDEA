@@ -12,8 +12,7 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th>ID</th>
-					<th>NUMERO IDENTIFICACION</th>
+					<th>CC</th>
 					<th>NOMBRE COMPLETO</th>
 					<th>TELEFONO</th>
 					<th>USUARIO</th>
@@ -24,14 +23,13 @@
 				<tbody>
 					<tr th:each="usuario:${listaUsuarios}">
 						<td th:text="${usuario.id}"></td>
-						<td th:text="${usuario.cedula}"></td>
 						<td th:text="${usuario.nombre}"></td>
 						<td th:text="${usuario.telefono}"></td>
 						<td th:text="${usuario.user}"></td>
 						<td th:text="${usuario.contrasena}"></td>
 						<td>
-							<a th:href="@{/editar/}+${usuario.id}" class="btn btn-warning">Editar</a>
-							<a th:href="@{/eliminar/}+${usuario.id}" class="btn btn-danger">Eliminar</a>
+							<a th:href="@{/EditarUsuario/{id}(id=${usuario.id})}" class="btn btn-warning">Editar</a>
+							<a th:href="@{/eliminarUsuario/}+${usuario.id}" class="btn btn-danger">Eliminar</a>
 						</td>
 					</tr>
 				</tbody>

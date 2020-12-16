@@ -68,16 +68,7 @@ public class UsuarioServicioImpl implements UsuarioServicio{
 
 	@Override
 	public void eliminarUsuario(long usuarioId) {
-		// TODO Auto-generated method stub
-		
-		Optional<Usuario> usuarioOb=this.usuarioRepositorio.findById(usuarioId);
-		if(usuarioOb.isPresent()) {
-			this.usuarioRepositorio.delete(usuarioOb.get());
-					
-		}else {
-			throw new ResourceNotFoundException("No encontrado con ID: "+  usuarioId);
-		}
-		
+		usuarioRepositorio.deleteById(usuarioId);
 	}
 	
 	
