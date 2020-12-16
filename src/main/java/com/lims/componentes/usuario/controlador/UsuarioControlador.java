@@ -29,7 +29,6 @@ public class UsuarioControlador {
 	
 	@GetMapping("/")
 	public String vistaPaginaWeb(Model modelo) {
-	
 		modelo.addAttribute("listaUsuarios", usuarioServicio.obtenerTodosUsuario());
 		return "index.html";
 	}
@@ -47,10 +46,18 @@ public class UsuarioControlador {
 		return "redirect:/";
 	}
 
-
-	@GetMapping("/usuarios")
-	public ResponseEntity <List<Usuario>> obtenerTodosUsuario(){
-				return ResponseEntity.ok().body(usuarioServicio.obtenerTodosUsuario());
+	@GetMapping("/eliminarUsuario/{id}")
+	public String eliminarUsuario(Model model, @PathVariable long id) {
+		usuarioServicio.eliminarUsuario(id);
+		return "redirect:/";
+	}
+	
+	@GetMapping("/EditarUsuario/{id}")
+	public String vistaEditarUsuario(@PathVariable (value="id") long id, Model model) {
+		
+		Usuario usuario=usuarioServicio.obtenerUsuarioPorId(id);
+		model.addAttribute("usuario", usuario);
+		return "editar_usuario.html";
 	}
 
 }
