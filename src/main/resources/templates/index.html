@@ -12,7 +12,8 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th>CC</th>
+					<th>ID</th>
+					<th>NUMERO IDENTIFICACION</th>
 					<th>NOMBRE COMPLETO</th>
 					<th>TELEFONO</th>
 					<th>USUARIO</th>
@@ -23,6 +24,7 @@
 				<tbody>
 					<tr th:each="usuario:${listaUsuarios}">
 						<td th:text="${usuario.id}"></td>
+						<td th:text="${usuario.cedula}"></td>
 						<td th:text="${usuario.nombre}"></td>
 						<td th:text="${usuario.telefono}"></td>
 						<td th:text="${usuario.user}"></td>
